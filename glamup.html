@@ -1,33 +1,26 @@
 <!DOCTYPE html>
-<html lang="sq">
+<html>
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shkarko GlamUP</title>
-
+  <title>GlamUP</title>
   <script>
-    const androidLink = "https://play.google.com/store/apps/details?id=com.glamup.client";
-    const iosLink = "https://apps.apple.com/al/app/glamup/id6759454308";
+    const android = "https://play.google.com/store/apps/details?id=com.glamup.client";
+    const ios = "https://apps.apple.com/al/app/glamup/id6759454308";
 
-    window.onload = function () {
-      const ua = navigator.userAgent || navigator.vendor || window.opera;
+    const ua = navigator.userAgent.toLowerCase();
 
-      if (/android/i.test(ua)) {
-        window.location.href = androidLink;
-      } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
-        window.location.href = iosLink;
-      }
-    };
+    if (ua.includes("android")) {
+      window.location.replace(android);
+    } else if (ua.includes("iphone") || ua.includes("ipad") || ua.includes("ipod")) {
+      window.location.replace(ios);
+    } else {
+      window.location.replace(android);
+    }
   </script>
 </head>
-
 <body>
-  <h1>GlamUP</h1>
-  <p>Po të ridrejtojmë te dyqani i duhur...</p>
-
-  <p>Nëse nuk hapet automatikisht:</p>
-  <a href="https://play.google.com/store/apps/details?id=com.glamup.client">Shkarko në Google Play</a>
-  <br><br>
-  <a href="https://apps.apple.com/al/app/glamup/id6759454308">Shkarko në App Store</a>
+  <p>Po hapet GlamUP...</p>
+  <p><a href="https://play.google.com/store/apps/details?id=com.glamup.client">Google Play</a></p>
+  <p><a href="https://apps.apple.com/al/app/glamup/id6759454308">App Store</a></p>
 </body>
 </html>
